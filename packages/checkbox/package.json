@@ -1,6 +1,6 @@
 {
   "name": "@zcool/checkbox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CheckBox",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -11,8 +11,8 @@
     "lint": "eslint src"
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
     "styled-components": "^4.1.2"
   },
   "author": "leo",
@@ -28,6 +28,18 @@
   },
   "dependencies": {
     "@zcool/theme": "^0.1.8",
-    "@zcool/util": "^0.1.1"
+    "react-popper": "^1.3.2"
+  },
+  "homepage": "https://github.com/zcued/poseidon#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcued/poseidon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zcued/poseidon/issues"
   }
 }
