@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
-// import { T } from '@zcool/util'
 import Icon from '@zcool/icon'
 
 const Label = styled.label`
   cursor: ${props => `${props.disable ? 'not-allowed' : 'pointer'}`};
 `
 
-function Checkbox({ width, disable, onCheck, value }) {
+function Radio({ width, disable, onCheck, value }) {
   const [checked, setChecked] = useState(value)
 
   const handleChange = () => {
@@ -24,29 +23,28 @@ function Checkbox({ width, disable, onCheck, value }) {
       <Label onClick={handleChange} disable={disable}>
         {checked ? (
           disable ? (
-            <Icon glyph="checkbox-checked-disabled" size={width} />
+            <Icon glyph="radio-checked-disabled" size={width} />
           ) : (
-            <Icon glyph="checkbox-checked" size={width} />
+            <Icon glyph="radio-checked" size={width} />
           )
         ) : disable ? (
-          <Icon glyph="checkbox-disabled" size={width} />
+          <Icon glyph="radio-disabled" size={width} />
         ) : (
-          <Icon glyph="checkbox" size={width} />
+          <Icon glyph="radio" size={width} />
         )}
       </Label>
     </div>
   )
 }
 
-Checkbox.displayName = 'Checkbox'
+Radio.displayName = 'Radio'
 
-Checkbox.defaultProps = {
+Radio.defaultProps = {
   theme,
   width: 16,
-  // width: T('icon.size.md'),
   disable: false,
   onCheck: () => {},
   value: false
 }
 
-export default Checkbox
+export default Radio

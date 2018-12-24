@@ -2,25 +2,28 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import styled from 'styled-components'
 import theme from '@zcool/theme'
+import { T, zIndex } from '@zcool/util'
+import Icon from '@zcool/icon'
+import Spinner from '@zcool/spinner'
 
 const ModalContainer = styled.div`
   text-align: center;
   margin: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
   overflow-y: auto;
   overflow-x: hidden;
 
   .modal__close {
     display: flex;
     position: absolute;
-    right: 8px;
+    right: ${T('spacing.xs')}px;
     top: 4px;
-    padding: 16px;
+    padding: ${T('spacing.sm')}px;
     cursor: pointer;
+
+    &.loading {
+      pointer-events: none;
+    }
   }
 
   .modal__header {
@@ -30,28 +33,35 @@ const ModalContainer = styled.div`
 
   .modal__body {
     height: auto;
+    padding: ${T('spacing.xl')}px;
   }
 
   .modal__footer {
-    & > button {
-      width: 128px;
-      padding: 8px;
-    }
+    margin-bottom: ${T('spacing.xl')}px;
   }
 `
 
 function Modal(props) {
   const MODAL_STYLES = {
     content: {
-      width: 528,
-      border: 'none',
       margin: 'auto',
+      width: 528,
+      border: 0,
       padding: 0,
-      borderRadius: 0
+      borderRadius: 0,
+      bottom: 'auto',
+      minHeight: '10rem',
+      left: '50%',
+      position: 'fixed',
+      right: 'auto',
+      top: '50%',
+      transform: 'translate(-50%,-50%)',
+      minWidth: '20rem',
+      maxWidth: '60rem'
     },
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.75)',
-      zIndex: 5999
+      zIndex: zIndex.modal
     }
   }
 
@@ -61,6 +71,8 @@ function Modal(props) {
     title,
     footer,
     children,
+    loading,
+    loadingPositionTop,
     onRequestClose,
     style,
     ariaHideApp,
@@ -92,21 +104,18 @@ function Modal(props) {
       style={MODAL_STYLES}
       {...rest}
     >
-      <ModalContainer>
-        <span className="modal__close" onClick={onRequestClose}>
-          <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fill-rule="evenodd">
-              <path fill="none" d="M0 0h16v16H0z" />
-              <path
-                d="M7.99 7.99L1 1l6.99 6.99L1 14.98l6.99-6.99zm0 0L15 15 7.99 7.99 14.98 1 7.99 7.99z"
-                stroke="#979797"
-              />
-            </g>
-          </svg>
+      <ModalContainer theme={props.theme}>
+        <span
+          className={`modal__close ${loading ? 'loading' : ''}`}
+          onClick={onRequestClose}
+        >
+          <Icon glyph="close" />
         </span>
         {title ? <div className="modal__header">{title}</div> : null}
-        <div className="modal__body">{children}</div>
-        {footer ? <div className="modal__footer">{footer}</div> : null}
+        <Spinner spinning={loading} top={loadingPositionTop}>
+          <div className="modal__body">{children}</div>
+          {footer ? <div className="modal__footer">{footer}</div> : null}
+        </Spinner>
       </ModalContainer>
     </ReactModal>
   )
@@ -116,6 +125,7 @@ Modal.displayName = 'Modal'
 
 Modal.defaultProps = {
   theme,
+  loading: false,
   ariaHideApp: false,
   shouldCloseOnOverlayClick: false
 }

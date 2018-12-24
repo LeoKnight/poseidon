@@ -1,19 +1,21 @@
 {
-  "name": "@zcool/pagination",
-  "version": "0.1.13",
-  "description": "a pagination.",
+  "name": "@zcool/table",
+  "version": "0.0.4",
+  "description": "Table",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "build": "node ../../shared/build-package",
+    "test": "echo \"Write some tests you bum!\"",
+    "build": "node ../../shared/build-package --watch",
+    "watch": "node ../../shared/watch-package",
     "lint": "eslint src"
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "styled-components": "^4.1.2"
   },
-  "author": "cuining",
+  "author": "leo",
   "license": "MIT",
   "files": [
     "es",
@@ -25,7 +27,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@zcool/input": "^0.1.13",
     "@zcool/theme": "^0.1.10",
     "@zcool/util": "^0.1.4"
   }

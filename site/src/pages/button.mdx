@@ -17,7 +17,89 @@ import Button from '@zcool/button'
 ```
 
 ```.jsx
-<Button >
-  this is a button
-</Button>
+<>
+  <div>
+    <Button type="primary" href="#" target="_blank" disabled={true}>
+      link
+    </Button>
+    <Button type="primary" htmlType="submit">
+      submit
+    </Button>
+    <Button loading={true}>
+      loading
+    </Button>
+    <Button size="small" loading={true}>
+      loading
+    </Button>
+    <Button type="primary" disabled={true}>
+      disabled
+    </Button>
+  </div>
+  <Flex halign="space-around">
+    <Button type="primary" href="#" target="_blank" disabled={true}>
+      link
+    </Button>
+    <Button type="primary" htmlType="submit">
+      submit
+    </Button>
+    <Button loading={true}>
+      loading
+    </Button>
+    <Button size="small" loading={true}>
+      loading
+    </Button>
+    <Button type="primary" disabled={true}>
+      disabled
+    </Button>
+  </Flex>
+  <Flex halign="space-around">
+    primary button size:
+    <Button type="primary">
+      default
+    </Button>
+    <Button type="primary" size="large">
+      large
+    </Button>
+    <Button type="primary" size="small">
+      small
+    </Button>
+  </Flex>
+  <Flex halign="space-around">
+    secondary button size:
+    <Button type="secondary">
+      default
+    </Button>
+    <Button type="secondary" size="large">
+      large
+    </Button>
+    <Button type="secondary" size="small">
+      small
+    </Button>
+  </Flex>
+  <Flex halign="space-around">
+    default button size:
+    <Button>
+      default
+    </Button>
+    <Button size="large">
+      large
+    </Button>
+    <Button size="small">
+      small
+    </Button>
+  </Flex>
+</>
 ```
+
+## props
+
+| props           | type     | default |
+| :-------------: | :------: | :-----: |
+| htmlType        | string   | button  |
+| type            | string   | default |
+| size            | string   | default |
+| loading         | boolean  | false   |
+| disabled        | boolean  | false   |
+| href            | string   |         |
+| target          | string   |         |
+| onClick         | function |         |

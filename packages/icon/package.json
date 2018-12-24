@@ -1,7 +1,7 @@
 {
-  "name": "@zcool/pagination",
-  "version": "0.1.13",
-  "description": "a pagination.",
+  "name": "@zcool/icon",
+  "version": "0.1.1",
+  "description": "a icon.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
@@ -9,11 +9,11 @@
     "lint": "eslint src"
   },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "styled-components": "^4.1.2"
   },
-  "author": "cuining",
+  "author": "zhh",
   "license": "MIT",
   "files": [
     "es",
@@ -23,10 +23,5 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@zcool/input": "^0.1.13",
-    "@zcool/theme": "^0.1.10",
-    "@zcool/util": "^0.1.4"
   }
 }
