@@ -29,21 +29,19 @@ function Checkbox({ width, disable, onCheck, value }) {
   }
 
   return (
-    <div>
-      <Label onClick={handleChange} width={width} disable={disable}>
-        {checked ? (
-          disable ? (
-            <DisableChecked />
-          ) : (
-            <Checked />
-          )
-        ) : disable ? (
-          <DisableUnChecked />
+    <Label onClick={handleChange} width={width} disable={disable}>
+      {checked ? (
+        disable ? (
+          <DisableChecked />
         ) : (
-          <UnChecked />
-        )}
-      </Label>
-    </div>
+          <Checked />
+        )
+      ) : disable ? (
+        <DisableUnChecked />
+      ) : (
+        <UnChecked />
+      )}
+    </Label>
   )
 }
 

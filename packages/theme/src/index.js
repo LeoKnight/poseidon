@@ -13,7 +13,7 @@ export const palette = {
   secondary: '#ffd100',
   white: '#ffffff',
   black: '#1f1f1f',
-  black2: '#383838',
+  black2: '#606060',
   spruce: '#666666',
   stone: '#a3a3a3',
   frost: '#dddddd',
